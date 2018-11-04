@@ -1,7 +1,6 @@
 <template>
   <v-app
     id="inspire"
-    dark
   >
     <v-navigation-drawer
       v-model="drawer"
@@ -44,41 +43,56 @@
       </v-list>
     </v-navigation-drawer>
     <v-toolbar
-      color="blue"
+      dark
+      color="primary"
       dense
       fixed
       clipped-left
       app
+      flat
     >
-      <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-      <v-icon class="mx-3">fab fa-youtube</v-icon>
-      <v-toolbar-title class="mr-5 align-center">
-        <span class="title">dsVue v1.0</span>
-      </v-toolbar-title>
+        <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
+        <v-toolbar-title class="ml-0 pl-3 white--text">
+            <span class="title">dsVue v1.0</span>
+        </v-toolbar-title>
+        <v-spacer></v-spacer> 
+        <v-avatar size="30">
+            <img src="https://cdn.vuetifyjs.com/images/john.jpg" alt="John">
+        </v-avatar>
+        <div style="padding-left:5px;">dojun8ho@gmail.com</div>
+        <v-btn icon><v-icon>search</v-icon></v-btn>
+        <v-btn icon><v-icon>apps</v-icon></v-btn>
+        <v-btn icon><v-icon>refresh</v-icon></v-btn>
+        <v-btn icon><v-icon>more_vert</v-icon></v-btn>
     </v-toolbar>
     <v-content>
-      <v-container fill-height>
+      <v-container fill-height >
         <v-layout justify-center align-center>
-          <v-flex shrink>
-            <v-tooltip right>
-              <v-btn
-                slot="activator"
-                :href="source"
-                icon
-                large
-                target="_blank"
-              >
-                <v-icon large>code</v-icon>
-              </v-btn>
-              <span>Source</span>
-            </v-tooltip>
-            <v-tooltip right>
-              <v-btn slot="activator" icon large href="https://codepen.io/johnjleider/pen/YeRKwQ" target="_blank">
-                <v-icon large>mdi-codepen</v-icon>
-              </v-btn>
-              <span>Codepen</span>
-            </v-tooltip>
-          </v-flex>
+            <v-card width="420px">
+                <v-toolbar color="primary" class="white--text" flat>
+                    <v-toolbar-title>Login</v-toolbar-title>
+                    <v-spacer></v-spacer>
+                </v-toolbar>
+                <v-container
+                    fluid
+                    grid-list-lg
+                >
+                    <v-layout row wrap>
+                        <v-flex xs12>
+                            <v-card-text>
+                                <v-form>
+                                    <v-text-field prepend-icon="person" name="login" label="Login" type="text"></v-text-field>
+                                    <v-text-field id="password" prepend-icon="lock" name="password" label="Password" type="password"></v-text-field>
+                                </v-form>
+                            </v-card-text>
+                            <v-card-actions>
+                                <v-spacer></v-spacer>
+                                <v-btn depressed small color="primary">Login</v-btn>
+                            </v-card-actions>
+                        </v-flex>
+                    </v-layout>
+                </v-container>
+            </v-card>
         </v-layout>
       </v-container>
     </v-content>
@@ -111,3 +125,7 @@
     }
   }
 </script>
+
+<style>
+.color{color:#ff0077}
+</style>
